@@ -8,6 +8,8 @@ const pool = require('./db');
 const app = express();
 const PORT = Number(process.env.PORT || 3000);
 
+app.set('trust proxy', 1);
+
 app.use(helmet({ contentSecurityPolicy: false }));
 app.use(express.json({ limit: '200kb' }));
 app.use(express.urlencoded({ extended: true }));
