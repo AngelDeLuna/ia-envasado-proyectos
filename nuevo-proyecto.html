@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registrar proyecto — IA Envasado Proyectos</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1 class="topbar__title">IA Envasado Proyectos</h1>
+    <div class="topbar__logo">
+      <img src="images/Logo.png" alt="Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+      <span style="display:none;">Logo</span>
+    </div>
+  </header>
+  <div class="accent-line"></div>
+
+  <main class="form-page form-page--wide">
+    <a class="back-link" href="index.html">&larr; Volver a proyectos</a>
+
+    <section class="form-card">
+      <h1>Registrar nuevo proyecto</h1>
+      <p class="form-intro">Crea una plantilla nueva completa. El proyecto, sus semanas y sus actividades iniciales se guardarán juntos en MySQL.</p>
+
+      <form id="projectForm">
+        <div class="form-grid">
+          <label class="form-field">
+            <span>Nombre del proyecto</span>
+            <input id="projectName" type="text" maxlength="180" placeholder="Ej. Simulación LOTOTO VR" required>
+          </label>
+
+          <label class="form-field">
+            <span>Desarrollado por / creador</span>
+            <input id="projectCreator" type="text" maxlength="140" placeholder="Nombre del creador" required>
+          </label>
+
+          <label class="form-field">
+            <span>Etapa</span>
+            <select id="projectStage" required>
+              <option value="Ideas">Ideas</option>
+              <option value="En progreso" selected>En progreso</option>
+              <option value="Terminado">Terminado</option>
+            </select>
+          </label>
+
+          <label class="form-field">
+            <span>Avance inicial (%)</span>
+            <input id="projectProgress" type="number" min="0" max="100" step="1" value="0" required>
+          </label>
+        </div>
+
+        <label class="form-field">
+          <span>Requerimientos adicionales</span>
+          <textarea id="projectRequirements" rows="3" maxlength="5000" placeholder="Ej. Meta Quest 3, GoPro, Blender, Unity 6..."></textarea>
+        </label>
+
+        <label class="form-field">
+          <span>URL de imagen (opcional por ahora)</span>
+          <input id="projectImage" type="url" maxlength="1000" placeholder="https://...">
+          <small>La subida directa de imágenes la agregaremos después. Puedes dejarlo vacío.</small>
+        </label>
+
+        <div class="project-builder__header">
+          <div>
+            <h2>Semanas y actividades</h2>
+            <p>Agrega las actividades que después aparecerán dentro de la plantilla para marcarlas como realizadas o no realizadas.</p>
+          </div>
+          <button id="addWeekBtn" class="secondary-btn" type="button">+ Agregar semana</button>
+        </div>
+
+        <div id="weeksBuilder" class="weeks-builder"></div>
+
+        <div class="form-actions">
+          <button id="saveProjectBtn" class="primary-btn" type="submit">Crear proyecto</button>
+          <span id="formStatus" class="form-status" aria-live="polite"></span>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <script src="js/data.js"></script>
+  <script src="js/project-form.js"></script>
+</body>
+</html>

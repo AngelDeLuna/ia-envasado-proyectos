@@ -1,0 +1,23 @@
+{
+  "name": "ia-envasado-proyectos",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Portal de proyectos IA Envasado con Node.js, Express y MySQL",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "db:init": "node scripts/init-db.js",
+    "db:seed": "node scripts/seed-db.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0",
+    "express-rate-limit": "^7.5.0",
+    "helmet": "^8.1.0",
+    "mysql2": "^3.14.0"
+  }
+}
